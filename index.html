@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHINSEI ATELIER | Luxury Anime Haute Streetwear (USA)</title>
+  <meta name="description" content="Limited Edition Luxury Anime Hoodies crafted in 500 GSM Heavyweight Japanese Loopback French Terry. Featuring Demon Slayer, Solo Leveling, Death Note, One Piece, Naruto, Jujutsu Kaisen, and My Hero Academia.">
+
+  <!-- Tailwind CSS CDN for modern responsive utilities -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            zinc: {
+              950: '#060608',
+              900: '#0e0e14',
+              850: '#14141c',
+              800: '#1f1f2b',
+              700: '#2e2e3f',
+            }
+          },
+          fontFamily: {
+            luxury: ['Syne', 'sans-serif'],
+            mono: ['Space Grotesk', 'monospace'],
+            sans: ['Inter', 'sans-serif'],
+            jp: ['Noto Sans JP', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#060608] text-zinc-100 min-h-screen flex flex-col font-sans selection:bg-emerald-500 selection:text-black">
+
+  <!-- Ambient Glow Effect -->
+  <div class="ambient-glow-top"></div>
+
+  <!-- 1. Top Announcement Bar -->
+  <div class="bg-gradient-to-r from-zinc-950 via-zinc-900 to-zinc-950 border-b border-zinc-800 text-[11px] font-mono py-2 px-4 text-center tracking-widest text-zinc-400 relative z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <span class="hidden md:inline text-zinc-500">TOKYO // NEW YORK ATELIER</span>
+      <div class="mx-auto flex items-center gap-2">
+        <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="text-white font-semibold">FREE 2-DAY U.S. DOMESTIC EXPRESS SHIPPING</span>
+        <span class="text-zinc-500">ON ORDERS OVER $150</span>
+        <span class="hidden sm:inline text-emerald-400">• STRICTLY 250 PIECES PER DROP</span>
+      </div>
+      <span class="hidden md:inline text-zinc-400">CURRENCY: <strong class="text-white">USD ($)</strong></span>
+    </div>
+  </div>
+
+  <!-- 2. Sticky Luxury Navigation -->
+  <header class="sticky top-0 z-40 glass-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 bg-white text-black font-luxury font-extrabold text-xl flex items-center justify-center tracking-tighter group-hover:bg-emerald-400 transition-colors">
+          新
+        </div>
+        <div>
+          <span class="text-lg font-luxury font-extrabold tracking-[0.25em] text-white block group-hover:text-emerald-400 transition-colors">
+            SHINSEI
+          </span>
+          <span class="text-[9px] font-mono tracking-[0.35em] text-zinc-400 uppercase block -mt-1">
+            ATELIER // TOKYO
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center gap-8 text-xs font-mono tracking-widest text-zinc-300 uppercase">
+        <a href="#collection" class="hover:text-emerald-400 transition-colors">14 PIECES</a>
+        <a href="#animes" class="hover:text-emerald-400 transition-colors">FRANCHISES</a>
+        <a href="#craft" class="hover:text-emerald-400 transition-colors">500 GSM CRAFT</a>
+        <a href="#lookbook" class="hover:text-emerald-400 transition-colors">LOOKBOOK</a>
+        <a href="#reviews" class="hover:text-emerald-400 transition-colors">REVIEWS</a>
+      </nav>
+
+      <!-- Utilities: Search, Wishlist, Bag -->
+      <div class="flex items-center gap-3">
+        <!-- Search Toggle -->
+        <div class="relative hidden sm:block w-48 lg:w-64">
+          <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Search anime, hoodie..." 
+            class="w-full bg-zinc-900/90 border border-zinc-800 text-xs text-white placeholder-zinc-500 py-2 pl-8 pr-3 font-mono rounded-xs focus:border-zinc-500 transition-all"
+          />
+          <svg class="w-3.5 h-3.5 text-zinc-500 absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </div>
+
+        <!-- Wishlist -->
+        <button 
+          onclick="showToast('You have ' + STATE.wishlist.size + ' saved items', 'info')" 
+          class="relative w-10 h-10 border border-zinc-800 hover:border-zinc-600 bg-zinc-900/60 rounded-xs flex items-center justify-center text-zinc-300 hover:text-white transition-all"
+          aria-label="Wishlist"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+          </svg>
+          <span class="wishlist-count hidden absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-rose-500 text-white font-mono text-[9px] font-bold flex items-center justify-center">0</span>
+        </button>
+
+        <!-- Cart Drawer Toggle -->
+        <button 
+          onclick="openCartDrawer()" 
+          class="relative px-4 h-10 border border-zinc-700 hover:border-white bg-white text-black font-mono text-xs font-bold tracking-widest uppercase rounded-xs flex items-center gap-2 hover:bg-zinc-200 transition-all shadow-lg"
+          aria-label="Shopping Bag"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/>
+          </svg>
+          <span class="hidden sm:inline">BAG</span>
+          <span class="cart-count hidden px-1.5 py-0.5 rounded-full bg-black text-white text-[10px] font-bold">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. Cinematic Hero Section -->
+  <section class="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden border-b border-zinc-800">
+    <!-- Subtle Grid Background -->
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#14141c_1px,transparent_1px),linear-gradient(to_bottom,#14141c_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-40"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <!-- Franchise Tags Ribbon -->
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-zinc-900 border border-zinc-800 rounded-full text-[10px] font-mono tracking-widest text-emerald-400 mb-6 uppercase">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+        AUTUMN/WINTER ARCHIVAL DROP • 14 BESPOKE PIECES
+      </div>
+
+      <!-- Hero Headline -->
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-luxury font-extrabold tracking-tight text-white mb-6 uppercase leading-none">
+        WHERE ANIME MEETS <br>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-200 to-violet-400">
+          HAUTE COUTURE.
+        </span>
+      </h1>
+
+      <p class="max-w-2xl mx-auto text-sm sm:text-base text-zinc-400 font-sans leading-relaxed mb-10">
+        Bespoke 500 GSM Japanese loopback French terry. Over 140,000 stitches of high-density embroidery per garment. Engineered in Tokyo & New York. Strictly limited to 250 numbered pieces per design.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="#collection" class="px-8 py-3.5 bg-white hover:bg-zinc-200 text-black font-mono text-xs font-bold tracking-widest uppercase transition-all shadow-2xl rounded-xs">
+          EXPLORE THE 14 ICONS ($180 - $220)
+        </a>
+        <a href="#craft" class="px-8 py-3.5 bg-zinc-900 hover:bg-zinc-800 text-white border border-zinc-700 hover:border-zinc-500 font-mono text-xs font-bold tracking-widest uppercase transition-all rounded-xs">
+          THE 500 GSM ATELIER
+        </a>
+      </div>
+
+      <!-- Value Props Bar -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-16 pt-10 border-t border-zinc-800/80 text-left">
+        <div class="p-4 bg-zinc-950/60 border border-zinc-800/60">
+          <div class="text-[10px] font-mono text-emerald-400 uppercase tracking-widest">FABRIC</div>
+          <div class="text-sm font-bold text-white mt-0.5">500 GSM French Terry</div>
+          <div class="text-xs text-zinc-500">Custom milled heavyweight</div>
+        </div>
+        <div class="p-4 bg-zinc-950/60 border border-zinc-800/60">
+          <div class="text-[10px] font-mono text-emerald-400 uppercase tracking-widest">EMBROIDERY</div>
+          <div class="text-sm font-bold text-white mt-0.5">140k+ Stitches</div>
+          <div class="text-xs text-zinc-500">Raised metallic & silk threads</div>
+        </div>
+        <div class="p-4 bg-zinc-950/60 border border-zinc-800/60">
+          <div class="text-[10px] font-mono text-emerald-400 uppercase tracking-widest">DOMESTIC SHIPPING</div>
+          <div class="text-sm font-bold text-white mt-0.5">2-4 Days (USPS/FedEx)</div>
+          <div class="text-xs text-zinc-500">Dispatched from Los Angeles</div>
+        </div>
+        <div class="p-4 bg-zinc-950/60 border border-zinc-800/60">
+          <div class="text-[10px] font-mono text-emerald-400 uppercase tracking-widest">GUARANTEE</div>
+          <div class="text-sm font-bold text-white mt-0.5">30-Day US Exchanges</div>
+          <div class="text-xs text-zinc-500">Hassle-free return policy</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Infinite Running Ticker -->
+  <div class="border-b border-zinc-800 bg-zinc-950 py-3 overflow-hidden select-none">
+    <div class="animate-ticker text-xs font-mono tracking-[0.25em] text-zinc-400 uppercase">
+      <span class="mx-6 text-white font-bold">DEMON SLAYER</span> •
+      <span class="mx-6 text-emerald-400">SOLO LEVELING</span> •
+      <span class="mx-6 text-white font-bold">DEATH NOTE</span> •
+      <span class="mx-6 text-amber-400">ONE PIECE</span> •
+      <span class="mx-6 text-white font-bold">NARUTO</span> •
+      <span class="mx-6 text-violet-400">JUJUTSU KAISEN</span> •
+      <span class="mx-6 text-white font-bold">MY HERO ACADEMIA</span> •
+      <span class="mx-6 text-emerald-400">500 GSM JAPANESE COTTON</span> •
+      <span class="mx-6 text-white font-bold">USA FULFILLMENT</span> •
+      <span class="mx-6 text-white font-bold">DEMON SLAYER</span> •
+      <span class="mx-6 text-emerald-400">SOLO LEVELING</span> •
+      <span class="mx-6 text-white font-bold">DEATH NOTE</span> •
+      <span class="mx-6 text-amber-400">ONE PIECE</span> •
+      <span class="mx-6 text-white font-bold">NARUTO</span> •
+      <span class="mx-6 text-violet-400">JUJUTSU KAISEN</span> •
+      <span class="mx-6 text-white font-bold">MY HERO ACADEMIA</span> •
+    </div>
+  </div>
+
+  <!-- 5. Main Collection Section -->
+  <section id="collection" class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow">
+    
+    <!-- Section Header & Controls -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 pb-6 border-b border-zinc-800">
+      <div>
+        <div class="text-xs font-mono text-emerald-400 uppercase tracking-widest mb-1.5 flex items-center gap-2">
+          <span>THE 7 ANIME FRANCHISES</span>
+          <span>•</span>
+          <span id="productCount" class="text-white font-bold">14 PIECES</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-luxury font-extrabold tracking-tight text-white uppercase">
+          HAUTE ARCHIVE // VOL. 01
+        </h2>
+        <p class="text-xs sm:text-sm text-zinc-400 font-sans mt-1">
+          Two high-end designs per anime. Premium heavyweight drape ($180 - $220).
+        </p>
+      </div>
+
+      <!-- Sorting Selector -->
+      <div class="flex items-center gap-3">
+        <label for="sortSelect" class="text-xs font-mono text-zinc-400 tracking-wider uppercase">SORT BY:</label>
+        <select 
+          id="sortSelect" 
+          class="bg-zinc-900 border border-zinc-700 text-xs font-mono text-white py-2 px-3 rounded-xs focus:border-white transition-colors"
+        >
+          <option value="featured">Featured Sequence</option>
+          <option value="price-low">Price: Low to High ($185 → $220)</option>
+          <option value="price-high">Price: High to Low ($220 → $185)</option>
+          <option value="rating">Top Rated (5.0 ★)</option>
+          <option value="new">New Drops</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Anime Filter Buttons (Horizontal Scrolling Bar) -->
+    <div id="animes" class="mb-10 overflow-x-auto pb-2 scrollbar-none">
+      <div class="flex items-center gap-2 min-w-max">
+        <button data-anime="all" class="anime-filter-btn active px-4 py-2 text-xs font-mono uppercase tracking-wider border rounded-xs">
+          ALL PIECES (14)
+        </button>
+        <button data-anime="demon-slayer" class="anime-filter-btn px-4 py-2 text-xs font-mono uppercase tracking-wider border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-600 rounded-xs">
+          DEMON SLAYER (2)
+        </button>
+        <button data-anime="solo-leveling" class="anime-filter-btn px-4 py-2 text-xs font-mono uppercase tracking-wider border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-600 rounded-xs">
+          SOLO LEVELING (2)
+        </button>
+        <button data-anime="death-note" class="anime-filter-btn px-4 py-2 text-xs font-mono uppercase tracking-wider border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-600 rounded-xs">
+          DEATH NOTE (2)
+        </button>
+        <button data-anime="one-piece" class="anime-filter-btn px-4 py-2 text-xs font-mono uppercase tracking-wider border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-600 rounded-xs">
+          ONE PIECE (2)
+        </button>
+        <button data-anime="naruto" class="anime-filter-btn px-4 py-2 text-xs font-mono uppercase tracking-wider border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-600 rounded-xs">
+          NARUTO (2)
+        </button>
+        <button data-anime="jujutsu-kaisen" class="anime-filter-btn px-4 py-2 text-xs font-mono uppercase tracking-wider border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-600 rounded-xs">
+          JUJUTSU KAISEN (2)
+        </button>
+        <button data-anime="boku-no-hero" class="anime-filter-btn px-4 py-2 text-xs font-mono uppercase tracking-wider border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-600 rounded-xs">
+          MY HERO ACADEMIA (2)
+        </button>
+      </div>
+    </div>
+
+    <!-- Product Grid (Dynamic Injection) -->
+    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <!-- Injected by app.js -->
+    </div>
+  </section>
+
+  <!-- 6. Craftsmanship & Haute Atelier Section -->
+  <section id="craft" class="py-20 bg-zinc-950 border-t border-b border-zinc-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-14">
+        <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest font-semibold block mb-2">
+          THE ANATOMY OF A $200 ATELIER PIECE
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-luxury font-extrabold text-white tracking-tight uppercase leading-tight">
+          WHY STANDARD MERCH CAN NEVER COMPARE.
+        </h2>
+        <p class="text-zinc-400 text-sm mt-3 leading-relaxed">
+          Most commercial anime merchandise uses cheap 240 GSM blended poly-cotton with plastic heat-transfers that peel after three washes. SHINSEI hoodies are engineered in small-batch bespoke luxury ateliers.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Feature 1 -->
+        <div class="p-8 bg-zinc-900/60 border border-zinc-800 relative group hover:border-zinc-600 transition-colors">
+          <div class="text-3xl font-luxury font-extrabold text-zinc-700 group-hover:text-emerald-400 transition-colors mb-4">
+            01
+          </div>
+          <h3 class="text-lg font-bold text-white tracking-wide mb-2">500 GSM Japanese Loopback Terry</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed font-sans mb-4">
+            Custom milled from 100% long-staple combed cotton yarns on vintage loopwheel looms. High-density weave provides monumental thermal insulation, sculptural drape, and will never pill or lose shape.
+          </p>
+          <span class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">PRE-SHRUNK • 32 OZ AVERAGE WEIGHT</span>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="p-8 bg-zinc-900/60 border border-zinc-800 relative group hover:border-zinc-600 transition-colors">
+          <div class="text-3xl font-luxury font-extrabold text-zinc-700 group-hover:text-emerald-400 transition-colors mb-4">
+            02
+          </div>
+          <h3 class="text-lg font-bold text-white tracking-wide mb-2">Multi-Pass Dimensional Embroidery</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed font-sans mb-4">
+            Each back piece undergoes over 140,000 continuous stitches combining metallic threads, raised foam puff embroidery, and UV-phosphor accents that glow under ultraviolet lighting.
+          </p>
+          <span class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">MADE IN JAPAN THREADS • ZERO CRACKING</span>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="p-8 bg-zinc-900/60 border border-zinc-800 relative group hover:border-zinc-600 transition-colors">
+          <div class="text-3xl font-luxury font-extrabold text-zinc-700 group-hover:text-emerald-400 transition-colors mb-4">
+            03
+          </div>
+          <h3 class="text-lg font-bold text-white tracking-wide mb-2">Bespoke Stainless Hardware & Drape</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed font-sans mb-4">
+            Engineered with dropped boxy shoulders, heavy 2x2 ribbed side gussets, dual-layered structured thermal hoods, and custom laser-engraved surgical stainless steel aglets.
+          </p>
+          <span class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">STREETWEAR FIT • DESIGNED FOR DECADES</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Streetwear Editorial Lookbook -->
+  <section id="lookbook" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+      <div>
+        <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest font-semibold block mb-1">STYLING & VISUALS</span>
+        <h2 class="text-3xl font-luxury font-extrabold text-white uppercase tracking-tight">LOOKBOOK // EDITORIAL</h2>
+      </div>
+      <span class="text-xs font-mono text-zinc-500">PHOTOGRAPHED ON GHOST MANNEQUIN STUDIO DISPLAYS</span>
+    </div>
+
+    <div id="lookbookGrid" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <!-- Injected by app.js -->
+    </div>
+  </section>
+
+  <!-- 8. Verified Customer Reviews -->
+  <section id="reviews" class="py-20 bg-zinc-950/80 border-t border-zinc-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-1 text-amber-400 text-lg mb-2">
+          ★★★★★
+        </div>
+        <h2 class="text-3xl font-luxury font-extrabold text-white uppercase tracking-tight">VERIFIED U.S. PATRON REVIEWS</h2>
+        <p class="text-xs text-zinc-400 font-mono mt-1">4.95 / 5.0 AVERAGE RATING OVER 2,400+ DOMESTIC DELIVERIES</p>
+      </div>
+
+      <div id="reviewsGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Injected by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. VIP Newsletter Sign-Up -->
+  <section class="py-16 bg-gradient-to-b from-zinc-950 to-black border-t border-zinc-800 text-center">
+    <div class="max-w-xl mx-auto px-4">
+      <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest font-bold block mb-2">VIP ATELIER ACCESS</span>
+      <h3 class="text-2xl sm:text-3xl font-luxury font-extrabold text-white uppercase tracking-tight mb-2">GET $20 OFF YOUR FIRST PIECE</h3>
+      <p class="text-xs text-zinc-400 mb-6">Receive private drop links before public releases. Use discount code <code class="bg-zinc-800 px-2 py-0.5 text-emerald-300 font-mono font-bold">SHINSEI10</code> at checkout.</p>
+      
+      <form onsubmit="event.preventDefault(); showToast('VIP code SHINSEI10 unlocked!', 'success');" class="flex gap-2 max-w-md mx-auto">
+        <input 
+          type="email" 
+          placeholder="Enter your email address" 
+          required 
+          class="flex-grow bg-zinc-900 border border-zinc-700 px-4 py-2.5 text-xs text-white font-mono rounded-xs focus:border-white transition-colors"
+        />
+        <button type="submit" class="px-6 py-2.5 bg-white text-black font-mono text-xs font-bold uppercase tracking-widest hover:bg-zinc-200 transition-colors rounded-xs">
+          JOIN
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- 10. Luxury Footer -->
+  <footer class="bg-black border-t border-zinc-900 text-zinc-400 text-xs font-mono py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+        <!-- Col 1 -->
+        <div class="space-y-3">
+          <div class="text-white font-luxury font-extrabold text-lg tracking-widest">SHINSEI // ATELIER</div>
+          <p class="text-zinc-500 text-xs leading-relaxed font-sans">
+            High-fashion Japanese anime streetwear crafted in 500 GSM loopback French terry. Tokyo design studio, domestic logistics based in Los Angeles & New York.
+          </p>
+          <div class="text-[11px] text-zinc-500">
+            Registered LLC • USA Shipping Hub
+          </div>
+        </div>
+
+        <!-- Col 2 -->
+        <div>
+          <div class="text-white font-bold tracking-widest uppercase mb-4">THE FRANCHISES</div>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#collection" onclick="resetFilters();" class="hover:text-emerald-400 transition-colors">Demon Slayer (2 Pieces)</a></li>
+            <li><a href="#collection" onclick="resetFilters();" class="hover:text-emerald-400 transition-colors">Solo Leveling (2 Pieces)</a></li>
+            <li><a href="#collection" onclick="resetFilters();" class="hover:text-emerald-400 transition-colors">Death Note (2 Pieces)</a></li>
+            <li><a href="#collection" onclick="resetFilters();" class="hover:text-emerald-400 transition-colors">One Piece (2 Pieces)</a></li>
+            <li><a href="#collection" onclick="resetFilters();" class="hover:text-emerald-400 transition-colors">Naruto (2 Pieces)</a></li>
+            <li><a href="#collection" onclick="resetFilters();" class="hover:text-emerald-400 transition-colors">Jujutsu Kaisen (2 Pieces)</a></li>
+            <li><a href="#collection" onclick="resetFilters();" class="hover:text-emerald-400 transition-colors">My Hero Academia (2 Pieces)</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3 -->
+        <div>
+          <div class="text-white font-bold tracking-widest uppercase mb-4">CLIENT SERVICES</div>
+          <ul class="space-y-2 text-xs">
+            <li><button onclick="openSizeGuide()" class="hover:text-emerald-400 transition-colors text-left">Size Guide (Inches)</button></li>
+            <li><a href="#craft" class="hover:text-emerald-400 transition-colors">500 GSM Care & Washing</a></li>
+            <li><a href="#" onclick="showToast('USPS Priority 2-4 Days nationwide delivery', 'info')" class="hover:text-emerald-400 transition-colors">US Shipping Policy</a></li>
+            <li><a href="#" onclick="showToast('30-Day Hassle-free domestic returns', 'info')" class="hover:text-emerald-400 transition-colors">30-Day US Returns</a></li>
+            <li><a href="#" onclick="showToast('Authenticity certificate included with every piece', 'info')" class="hover:text-emerald-400 transition-colors">Certificate of Authenticity</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4 -->
+        <div>
+          <div class="text-white font-bold tracking-widest uppercase mb-4">PAYMENT & SECURITY</div>
+          <p class="text-zinc-500 text-xs mb-3">
+            256-bit SSL encrypted checkout. We support Apple Pay, Google Pay, Shop Pay, Visa, Mastercard, and American Express.
+          </p>
+          <div class="flex flex-wrap gap-2 text-[10px] font-mono text-zinc-300">
+            <span class="px-2 py-1 bg-zinc-900 border border-zinc-800">APPLE PAY</span>
+            <span class="px-2 py-1 bg-zinc-900 border border-zinc-800">GOOGLE PAY</span>
+            <span class="px-2 py-1 bg-zinc-900 border border-zinc-800">STRIPE</span>
+            <span class="px-2 py-1 bg-zinc-900 border border-zinc-800">AMEX</span>
+            <span class="px-2 py-1 bg-zinc-900 border border-zinc-800">VISA</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-8 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-zinc-600 text-[11px]">
+        <div>© 2026 SHINSEI ATELIER LLC. All Rights Reserved. Crafted for anime & streetwear connoisseurs.</div>
+        <div class="flex gap-4">
+          <a href="#" class="hover:text-zinc-400">Privacy Policy</a>
+          <a href="#" class="hover:text-zinc-400">Terms of Service</a>
+          <a href="#" class="hover:text-zinc-400">California Supply Chains Act</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       MODALS & SLIDE-OVER DRAWERS
+       ======================================================================== -->
+
+  <!-- Slide-Over Shopping Bag (Cart Drawer) -->
+  <div id="cartBackdrop" onclick="closeCartDrawer()" class="hidden fixed inset-0 modal-backdrop z-50 transition-opacity"></div>
+  <aside id="cartDrawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-zinc-950 border-l border-zinc-800 shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-out flex flex-col">
+    <!-- Drawer Header -->
+    <div class="p-6 border-b border-zinc-800 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="text-sm font-luxury font-extrabold text-white tracking-widest uppercase">YOUR ATELIER BAG</span>
+        <span class="cart-count text-xs font-mono font-bold px-2 py-0.5 bg-zinc-800 text-emerald-400 rounded-full">0</span>
+      </div>
+      <button onclick="closeCartDrawer()" class="text-zinc-400 hover:text-white transition-colors font-mono text-xl p-1" aria-label="Close bag">
+        ✕
+      </button>
+    </div>
+
+    <!-- Free Shipping Progress -->
+    <div class="bg-zinc-900/80 p-3.5 border-b border-zinc-800 text-xs font-mono">
+      <div id="shippingText" class="text-zinc-300 text-[11px] mb-2 leading-relaxed">
+        Add <strong>$150.00</strong> more to unlock <strong>FREE 2-Day US Express Shipping</strong>
+      </div>
+      <div class="w-full h-1.5 bg-zinc-800 rounded-full overflow-hidden">
+        <div id="shippingProgress" class="h-full bg-emerald-400 transition-all duration-500 rounded-full" style="width: 0%"></div>
+      </div>
+    </div>
+
+    <!-- Scrollable Item List -->
+    <div id="cartItems" class="flex-grow overflow-y-auto p-6 space-y-4">
+      <!-- Injected by app.js -->
+    </div>
+
+    <!-- Drawer Footer (Subtotal, Promo, Checkout) -->
+    <div class="p-6 border-t border-zinc-800 bg-zinc-950/95 space-y-4">
+      <!-- Promo Code Input -->
+      <div class="flex gap-2">
+        <input 
+          type="text" 
+          id="promoCodeInput" 
+          placeholder="Promo code (e.g. SHINSEI10)" 
+          class="flex-grow bg-zinc-900 border border-zinc-800 px-3 py-2 text-xs font-mono text-white placeholder-zinc-500 uppercase rounded-xs"
+        />
+        <button onclick="applyPromoCode()" class="px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-white font-mono text-xs uppercase font-bold rounded-xs transition-colors">
+          APPLY
+        </button>
+      </div>
+
+      <!-- Financials Breakdown -->
+      <div class="space-y-1.5 font-mono text-xs">
+        <div class="flex justify-between text-zinc-400">
+          <span>SUBTOTAL:</span>
+          <span id="cartSubtotal" class="text-white font-bold">$0.00</span>
+        </div>
+        <div id="discountRow" class="hidden flex justify-between text-emerald-400">
+          <span>VIP DISCOUNT:</span>
+          <span id="cartDiscount">-$0.00</span>
+        </div>
+        <div class="flex justify-between text-zinc-400">
+          <span>US DOMESTIC SHIPPING:</span>
+          <span class="text-emerald-400 font-bold">FREE (2-DAY)</span>
+        </div>
+        <div class="flex justify-between text-sm text-white pt-2 border-t border-zinc-800 font-bold">
+          <span>ESTIMATED TOTAL:</span>
+          <span id="cartTotal" class="text-base text-emerald-400 font-mono">$0.00</span>
+        </div>
+      </div>
+
+      <!-- Checkout Button -->
+      <button 
+        onclick="openCheckoutModal()" 
+        class="w-full py-3.5 bg-white hover:bg-zinc-200 text-black font-mono text-xs font-bold tracking-widest uppercase transition-all shadow-xl rounded-xs flex items-center justify-center gap-2"
+      >
+        <span>SECURE CHECKOUT</span>
+        <span>→</span>
+      </button>
+
+      <div class="text-center text-[10px] font-mono text-zinc-500 flex items-center justify-center gap-2">
+        <span>🔒 256-BIT SSL ENCRYPTION</span>
+        <span>•</span>
+        <span>LOS ANGELES DISPATCH</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Quick View Product Modal -->
+  <div id="quickViewModal" class="hidden fixed inset-0 z-50 overflow-y-auto modal-backdrop flex items-center justify-center p-4">
+    <div class="relative bg-zinc-950 border border-zinc-800 max-w-4xl w-full rounded-sm shadow-2xl overflow-hidden animate-fade-in my-8">
+      <button onclick="closeQuickView()" class="absolute top-4 right-4 z-20 text-zinc-400 hover:text-white font-mono text-xl w-8 h-8 rounded-full bg-black/60 flex items-center justify-center transition-colors">
+        ✕
+      </button>
+      <div id="quickViewContent">
+        <!-- Injected by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Size Guide Modal -->
+  <div id="sizeGuideModal" class="hidden fixed inset-0 z-50 overflow-y-auto modal-backdrop flex items-center justify-center p-4">
+    <div class="relative bg-zinc-950 border border-zinc-800 max-w-2xl w-full p-6 sm:p-8 rounded-sm shadow-2xl animate-fade-in my-8">
+      <div class="flex items-center justify-between pb-4 border-b border-zinc-800 mb-6">
+        <div>
+          <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest">STREETWEAR SPECIFICATION</span>
+          <h3 class="text-xl font-bold font-luxury text-white uppercase">HOODIE SIZE GUIDE (INCHES)</h3>
+        </div>
+        <button onclick="closeSizeGuide()" class="text-zinc-400 hover:text-white font-mono text-xl">✕</button>
+      </div>
+
+      <p class="text-xs text-zinc-300 mb-6 font-sans leading-relaxed">
+        Our hoodies feature an authentic Japanese boxy oversized cut with dropped shoulders. If you prefer a tailored fit, size down one size. All garments are pre-shrunk to prevent shrinkage.
+      </p>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-xs font-mono text-left text-zinc-300 border-collapse">
+          <thead>
+            <tr class="border-b border-zinc-700 bg-zinc-900 text-zinc-400 uppercase text-[10px] tracking-wider">
+              <th class="p-3">SIZE</th>
+              <th class="p-3">CHEST WIDTH</th>
+              <th class="p-3">BODY LENGTH</th>
+              <th class="p-3">SHOULDER</th>
+              <th class="p-3">SLEEVE LENGTH</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-zinc-800">
+            <tr><td class="p-3 font-bold text-white">XS</td><td class="p-3">22.5"</td><td class="p-3">26.0"</td><td class="p-3">21.5"</td><td class="p-3">23.5"</td></tr>
+            <tr><td class="p-3 font-bold text-white">S</td><td class="p-3">24.0"</td><td class="p-3">27.0"</td><td class="p-3">22.5"</td><td class="p-3">24.5"</td></tr>
+            <tr><td class="p-3 font-bold text-white">M</td><td class="p-3">25.5"</td><td class="p-3">28.0"</td><td class="p-3">23.5"</td><td class="p-3">25.5"</td></tr>
+            <tr class="bg-zinc-900/40 text-emerald-400 font-bold"><td class="p-3 text-white">L (Standard)</td><td class="p-3">27.0"</td><td class="p-3">29.0"</td><td class="p-3">24.5"</td><td class="p-3">26.0"</td></tr>
+            <tr><td class="p-3 font-bold text-white">XL</td><td class="p-3">28.5"</td><td class="p-3">30.0"</td><td class="p-3">25.5"</td><td class="p-3">26.5"</td></tr>
+            <tr><td class="p-3 font-bold text-white">XXL</td><td class="p-3">30.0"</td><td class="p-3">31.0"</td><td class="p-3">26.5"</td><td class="p-3">27.0"</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-zinc-800 flex justify-end">
+        <button onclick="closeSizeGuide()" class="px-6 py-2 bg-zinc-800 hover:bg-zinc-700 text-white font-mono text-xs uppercase font-bold rounded-xs transition-colors">
+          CLOSE GUIDE
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- U.S. Domestic Checkout Modal -->
+  <div id="checkoutModal" class="hidden fixed inset-0 z-50 overflow-y-auto modal-backdrop flex items-center justify-center p-4">
+    <div id="checkoutModalContainer" class="relative bg-zinc-950 border border-zinc-800 max-w-3xl w-full rounded-sm shadow-2xl overflow-hidden animate-fade-in my-8">
+      
+      <!-- Modal Header -->
+      <div class="p-6 border-b border-zinc-800 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 bg-white text-black font-luxury font-extrabold flex items-center justify-center text-sm">新</div>
+          <div>
+            <h3 class="text-sm font-luxury font-extrabold text-white tracking-widest uppercase">SHINSEI ATELIER // U.S. CHECKOUT</h3>
+            <span class="text-[10px] font-mono text-zinc-500">DOMESTIC EXPRESS FULFILLMENT</span>
+          </div>
+        </div>
+        <button onclick="closeCheckoutModal()" class="text-zinc-400 hover:text-white font-mono text-xl p-1">✕</button>
+      </div>
+
+      <form id="checkoutForm" onsubmit="handleCheckoutSubmit(event)" class="p-6 sm:p-8 space-y-6">
+        
+        <!-- Order Summary Pill -->
+        <div class="bg-zinc-900 border border-zinc-800 p-4 rounded-xs">
+          <span class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block mb-2">ORDER SUMMARY</span>
+          <div id="checkoutSummaryList" class="space-y-2 max-h-36 overflow-y-auto pr-2">
+            <!-- Injected by app.js -->
+          </div>
+          <div class="flex justify-between items-baseline pt-3 mt-3 border-t border-zinc-800 text-xs font-mono">
+            <span class="text-zinc-400">TOTAL DUE (USD):</span>
+            <span id="checkoutTotal" class="text-lg font-bold text-emerald-400">$0.00</span>
+          </div>
+        </div>
+
+        <!-- Section 1: Customer Contact -->
+        <div>
+          <h4 class="text-xs font-mono text-white uppercase tracking-widest font-bold mb-3 flex items-center gap-2">
+            <span class="w-5 h-5 rounded-full bg-zinc-800 text-emerald-400 flex items-center justify-center text-[10px]">1</span>
+            CUSTOMER & SHIPPING ADDRESS (USA)
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
+            <div>
+              <label class="block text-zinc-400 mb-1">FULL NAME *</label>
+              <input type="text" id="chkName" required placeholder="Alex Mercer" class="w-full bg-zinc-900 border border-zinc-800 p-2.5 text-white rounded-xs focus:border-white" />
+            </div>
+            <div>
+              <label class="block text-zinc-400 mb-1">EMAIL ADDRESS *</label>
+              <input type="email" id="chkEmail" required placeholder="alex@domain.com" class="w-full bg-zinc-900 border border-zinc-800 p-2.5 text-white rounded-xs focus:border-white" />
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-zinc-400 mb-1">STREET ADDRESS *</label>
+              <input type="text" id="chkAddress" required placeholder="142 Mercer St, Apt 4B" class="w-full bg-zinc-900 border border-zinc-800 p-2.5 text-white rounded-xs focus:border-white" />
+            </div>
+            <div>
+              <label class="block text-zinc-400 mb-1">CITY *</label>
+              <input type="text" id="chkCity" required placeholder="New York" class="w-full bg-zinc-900 border border-zinc-800 p-2.5 text-white rounded-xs focus:border-white" />
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="block text-zinc-400 mb-1">STATE *</label>
+                <select id="chkState" class="w-full bg-zinc-900 border border-zinc-800 p-2.5 text-white rounded-xs focus:border-white">
+                  <option value="NY">NY - New York</option>
+                  <option value="CA">CA - California</option>
+                  <option value="TX">TX - Texas</option>
+                  <option value="FL">FL - Florida</option>
+                  <option value="IL">IL - Illinois</option>
+                  <option value="WA">WA - Washington</option>
+                  <option value="MA">MA - Massachusetts</option>
+                  <option value="other">Other US State</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-zinc-400 mb-1">ZIP CODE *</label>
+                <input type="text" id="chkZip" required pattern="[0-9]{5}" placeholder="10012" class="w-full bg-zinc-900 border border-zinc-800 p-2.5 text-white rounded-xs focus:border-white" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Payment Method -->
+        <div>
+          <h4 class="text-xs font-mono text-white uppercase tracking-widest font-bold mb-3 flex items-center gap-2">
+            <span class="w-5 h-5 rounded-full bg-zinc-800 text-emerald-400 flex items-center justify-center text-[10px]">2</span>
+            PAYMENT INFORMATION (ENCRYPTED)
+          </h4>
+
+          <!-- Mock Payment Tabs -->
+          <div class="grid grid-cols-3 gap-2 mb-3">
+            <button type="button" class="py-2.5 bg-zinc-800 border border-zinc-600 text-white font-mono text-xs font-bold rounded-xs">
+              CREDIT CARD
+            </button>
+            <button type="button" onclick="showToast('Apple Pay instant authorization ready', 'info')" class="py-2.5 bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white font-mono text-xs rounded-xs">
+              APPLE PAY
+            </button>
+            <button type="button" onclick="showToast('Google Pay instant authorization ready', 'info')" class="py-2.5 bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white font-mono text-xs rounded-xs">
+              GOOGLE PAY
+            </button>
+          </div>
+
+          <div class="space-y-3 text-xs font-mono">
+            <div>
+              <label class="block text-zinc-400 mb-1">CARD NUMBER</label>
+              <input type="text" placeholder="•••• •••• •••• 4242" value="4242 •••• •••• 4242" class="w-full bg-zinc-900 border border-zinc-800 p-2.5 text-white rounded-xs" />
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-zinc-400 mb-1">EXPIRY (MM/YY)</label>
+                <input type="text" placeholder="12/28" value="12/28" class="w-full bg-zinc-900 border border-zinc-800 p-2.5 text-white rounded-xs" />
+              </div>
+              <div>
+                <label class="block text-zinc-400 mb-1">CVC / CVV</label>
+                <input type="text" placeholder="888" value="888" class="w-full bg-zinc-900 border border-zinc-800 p-2.5 text-white rounded-xs" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button 
+          type="submit" 
+          id="checkoutSubmitBtn" 
+          class="w-full py-4 bg-white hover:bg-zinc-200 text-black font-mono text-xs font-bold tracking-widest uppercase transition-all shadow-xl rounded-xs flex items-center justify-center gap-2"
+        >
+          <span>AUTHORIZE & PLACE ORDER</span>
+          <span>•</span>
+          <span class="text-zinc-600">FREE 2-DAY U.S. SHIPPING</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-auto"></div>
+
+  <!-- App Script -->
+  <script src="app.js"></script>
+</body>
+</html>

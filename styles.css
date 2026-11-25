@@ -1,0 +1,234 @@
+/* ==========================================================================
+   SHINSEI ATELIER - Luxury Anime Haute Streetwear
+   Modern Haute Couture & Streetwear CSS Framework
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&family=Noto+Sans+JP:wght@400;700;900&display=swap');
+
+:root {
+  --bg-black: #060608;
+  --bg-surface: #0e0e14;
+  --bg-surface-elevated: #161620;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-active: rgba(255, 255, 255, 0.25);
+  
+  --accent-gold: #f59e0b;
+  --accent-emerald: #10b981;
+  --accent-cyan: #06b6d4;
+  --accent-violet: #a855f7;
+  --accent-crimson: #ef4444;
+
+  --font-serif-luxury: 'Syne', sans-serif;
+  --font-mono-tech: 'Space Grotesk', monospace;
+  --font-sans-body: 'Inter', sans-serif;
+  --font-jp: 'Noto Sans JP', sans-serif;
+}
+
+/* Custom Reset & Scrollbar */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--bg-black);
+  color: #ededed;
+  font-family: var(--font-sans-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Luxury Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #08080c;
+}
+::-webkit-scrollbar-thumb {
+  background: #272733;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f50;
+}
+
+/* Typography Helpers */
+.font-luxury {
+  font-family: var(--font-serif-luxury);
+}
+.font-tech {
+  font-family: var(--font-mono-tech);
+}
+.font-kanji {
+  font-family: var(--font-jp);
+}
+
+/* Ambient Subtle Background Glow */
+.ambient-glow-top {
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, rgba(168, 85, 247, 0.04) 50%, transparent 80%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Luxury Streetwear Badges */
+.badge-pill {
+  border-radius: 2px;
+  letter-spacing: 0.12em;
+}
+.badge-gold {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+.badge-fire {
+  background: rgba(239, 68, 68, 0.18);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.45);
+}
+.badge-purple {
+  background: rgba(168, 85, 247, 0.18);
+  color: #c084fc;
+  border: 1px solid rgba(168, 85, 247, 0.45);
+}
+.badge-crimson {
+  background: rgba(225, 29, 72, 0.18);
+  color: #fb7185;
+  border: 1px solid rgba(225, 29, 72, 0.45);
+}
+.badge-silver {
+  background: rgba(226, 232, 240, 0.15);
+  color: #f1f5f9;
+  border: 1px solid rgba(226, 232, 240, 0.35);
+}
+.badge-mono {
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #ffffff;
+}
+.badge-emerald {
+  background: rgba(16, 185, 129, 0.18);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.45);
+}
+.badge-orange {
+  background: rgba(249, 115, 22, 0.18);
+  color: #fb923c;
+  border: 1px solid rgba(249, 115, 22, 0.45);
+}
+.badge-cyan {
+  background: rgba(6, 182, 212, 0.18);
+  color: #22d3ee;
+  border: 1px solid rgba(6, 182, 212, 0.45);
+}
+.badge-teal {
+  background: rgba(20, 184, 166, 0.18);
+  color: #2dd4bf;
+  border: 1px solid rgba(20, 184, 166, 0.45);
+}
+.badge-blue {
+  background: rgba(59, 130, 246, 0.18);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.45);
+}
+
+/* Product Card Styling */
+.product-card {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.7);
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.9), 0 0 24px -6px rgba(16, 185, 129, 0.15);
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(14, 14, 20, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+}
+
+.glass-nav {
+  background: rgba(6, 6, 8, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Ticker Animation */
+@keyframes ticker {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+.animate-ticker {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: ticker 32s linear infinite;
+}
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
+
+/* Custom Fade In */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Button & Filter Transitions */
+.anime-filter-btn {
+  white-space: nowrap;
+  transition: all 0.25s ease;
+}
+.anime-filter-btn.active {
+  background: #ffffff;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+  font-weight: 700;
+}
+
+/* Wishlist Button */
+.wishlist-btn.active svg {
+  fill: #f43f5e;
+  stroke: #f43f5e;
+}
+
+/* Modal and Drawer backdrop */
+.modal-backdrop {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Form Styles */
+input, select, textarea {
+  color-scheme: dark;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Custom Selection */
+::selection {
+  background: #10b981;
+  color: #000000;
+}
